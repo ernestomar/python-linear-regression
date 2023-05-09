@@ -2,7 +2,9 @@
 
 ## Cargar los datos.
 
-Instrucciones para subir el archivo "housing.csv" a tu Jupyter Notebook en Google Colab:
+Para hacer esta practica se requiere el archivo `housing.csv` que puede ser descargado de: https://drive.google.com/file/d/1oLXxCBopS_3hRiRlfpZsgIXjglh7I0R_/view?usp=share_link
+
+Luego sigue estas instrucciones para subir el archivo "housing.csv" a tu Jupyter Notebook en Google Colab:
 
 1. Abre tu cuenta de Google Drive en tu navegador y crea una carpeta nueva donde desees guardar tu archivo CSV. 
 
@@ -149,3 +151,45 @@ print("El precio medio de la vivienda predicho es:", predicted_value[0])
 ```
 
 Ten en cuenta que este es solo un ejemplo y que el valor predicho puede no ser exactamente igual al valor real debido a las limitaciones del modelo y posibles errores en la predicción. Además, este ejemplo utiliza datos del propio dataset, pero en aplicaciones reales, generalmente se usarían datos de casas no presentes en el dataset para realizar predicciones útiles y nuevas.
+
+## Anáisis de Correlación de Variables.
+
+Es posible realizar un análisis preliminar de las variables para determinar correlaciones y, si es necesario, eliminar algunas que estén altamente correlacionadas. Para ello, puedes calcular la matriz de correlación usando la función `corr()` en un DataFrame de pandas y visualizarla con la biblioteca Seaborn. Aquí tienes un ejemplo:
+
+1. Importar las bibliotecas necesarias:
+
+```python
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+2. Cargar el dataset "California Housing Prices":
+
+```python
+data = pd.read_csv("california_housing_prices.csv")
+```
+
+3. Calcular la matriz de correlación:
+
+```python
+correlation_matrix = data.corr()
+```
+
+4. Visualizar la matriz de correlación usando Seaborn:
+
+```python
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.show()
+```
+
+En la visualización, los valores cercanos a 1 o -1 indican una alta correlación positiva o negativa, respectivamente, mientras que los valores cercanos a 0 indican una baja correlación. Si encuentras variables altamente correlacionadas, podrías considerar eliminar una de ellas del análisis para evitar la multicolinealidad, que puede afectar la interpretación de los coeficientes de la regresión lineal múltiple y la precisión del modelo.
+
+Por ejemplo, si observamos que "total_rooms" y "households" están altamente correlacionadas (0.92 en este caso), podríamos eliminar una de ellas antes de entrenar el modelo de regresión lineal múltiple. Para hacer esto, puedes eliminar la columna correspondiente del DataFrame:
+
+```python
+data = data.drop("total_rooms", axis=1)
+```
+
+Luego, puedes continuar con la división de los datos, el entrenamiento y la evaluación del modelo de regresión lineal múltiple como se describió en respuestas anteriores.
