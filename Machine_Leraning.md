@@ -6,22 +6,18 @@ Para hacer esta practica se requiere el archivo `housing.csv` que puede ser desc
 
 Luego sigue estas instrucciones para subir el archivo "housing.csv" a tu Jupyter Notebook en Google Colab:
 
-1. Abre tu cuenta de Google Drive en tu navegador y crea una carpeta nueva donde desees guardar tu archivo CSV. 
+1. En el nuevo cuaderno hacer clic en el icono de carpeta de la barra de la izquierda, luego hacer clic en el icono de subir archivo y seleccionar el archiv odescagado.
 
-2. Haz clic en "Nuevo" en la esquina superior izquierda y selecciona "Más" y luego "Google Colaboratory". Esto abrirá un nuevo cuaderno de Colab en una nueva pestaña de tu navegador.
+2. Busca el archivo CSV que deseas subir ("housing.csv") en tu computadora y selecciónalo.
 
-3. En el nuevo cuaderno de Colab, haz clic en "Archivo" en la barra de herramientas superior y selecciona "Subir". 
+3. Una vez que el archivo CSV se haya cargado en Colab, aparecerá en la sección de archivos en la barra lateral izquierda.
 
-4. Busca el archivo CSV que deseas subir ("housing.csv") en tu computadora y selecciónalo.
-
-5. Una vez que el archivo CSV se haya cargado en Colab, aparecerá en la sección de archivos en la barra lateral izquierda.
-
-6. Puedes acceder al archivo CSV desde el código Python en tu cuaderno de Colab utilizando la ruta relativa al archivo. Por ejemplo, si colocaste el archivo CSV en una carpeta llamada "datasets", puedes leerlo en tu cuaderno de la siguiente manera:
+4. Puedes acceder al archivo CSV desde el código Python en tu cuaderno de Colab utilizando la ruta relativa al archivo. Por ejemplo, si colocaste el archivo CSV en una carpeta llamada "datasets", puedes leerlo en tu cuaderno de la siguiente manera:
 
 ```python
 import pandas as pd
 
-data = pd.read_csv('datasets/housing.csv')
+data = pd.read_csv('housing.csv')
 ```
 
 
